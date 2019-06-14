@@ -1,24 +1,46 @@
-# README
+# PokeProd! - MVP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![](https://github.com/xTheMay/poke-prod/blob/master/client/public/pb.png )  
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+💡 **PokeDex - CRUD With React and Rails**  
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+🎮 **Demonstration:** [Heroku Application](http://poke-prod.herokuapp.com/)
 
-* How to run the test suite
+## 💻 Technologies:
 
-* Services (job queues, cache servers, search engines, etc.)
+**Languages/FrameWorks:**
 
-* Deployment instructions
+- Rails
+- NodeJS
+- ReactJS 
 
-* ...
+**DataBase:**
+
+-   Postgresql (Psql Dyno - Heroku)
+
+**Install & Run!**
+
+``` sh
+git clone https:// ...  
+bundle install && yarn install
+cd client && yarn install
+cd .. && rake db:create db:migrate db:seed
+rake start
+```
+
+**To Do **
+
+- Filter by Name
+- Filter by Specie
+
+**To Fix **
+
+-- React Dropzone (Image Upload)
+
+
+
+
