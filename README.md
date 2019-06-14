@@ -32,12 +32,12 @@ cd .. && rake db:create db:migrate db:seed
 rake start
 ```
 
-**To Do **
+**To Do**
 
 - Filter by Name
 - Filter by Specie
 
-**To Fix **
+**To Fix**
 
 -- React Dropzone (Image Upload)
 
