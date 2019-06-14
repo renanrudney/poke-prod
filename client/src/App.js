@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-// import logo from "./logo.svg";
 import "./App.css";
+import logo from "./pb.png";
 import ListPokemon from "./components/ListPokemon";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">PokeDex!</h1>
+          <img className="App-logo" src={logo} alt="" />
+          <h1 className="App-title">PokeProd!</h1>
         </header>
         <ListPokemon />
       </div>
@@ -37,4 +38,4 @@ class App extends Component {
 //   );
 // }
 
-export default App;
+// export default App;

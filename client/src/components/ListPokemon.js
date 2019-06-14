@@ -44,21 +44,22 @@ class ListPokemon extends Component {
       editingPokemonId: id
     });
   }
-  editPokemon(id, name, specie, weight, height) {
+  editPokemon(image, id, name, specie, weight, height) {
     axios
       .put("/api/v1/pokemons/" + id, {
         pokemon: {
           name,
           specie,
           weight,
-          height
+          height,
+          image
         }
       })
       .then(response => {
         console.log(response);
         const pokemons = this.state.pokemons;
         const index = pokemons.findIndex(pokemon => pokemon.id === id);
-        pokemons[index] = { id, name, specie, weight, height };
+        pokemons[index] = { id, name, specie, weight, height, image };
         this.setState(() => ({
           pokemons,
           editingPokemonId: null
@@ -79,29 +80,37 @@ class ListPokemon extends Component {
   }
   render() {
     return (
-      <div className="Pokemons-container">
-        {this.state.pokemons.map(pokemon => {
-          if (this.state.editingPokemonId === pokemon.id) {
-            return (
-              <EditPokemonForm
-                pokemon={pokemon}
-                key={pokemon.id}
-                editPokemon={this.editPokemon}
-              />
-            );
-          } else {
-            return (
-              <Pokemon
-                pokemon={pokemon}
-                key={pokemon.id}
-                onRemovePokemon={this.removePokemon}
-                editingPokemon={this.editingPokemon}
-              />
-            );
-          }
-        })}
-        <NewPokemonForm onNewPokemon={this.addNewPokemon} />
-      </div>
+      <section className="section">
+        <div className="container">
+          <div className="columns">
+            {this.state.pokemons.map(pokemon => {
+              if (this.state.editingPokemonId === pokemon.id) {
+                return (
+                  <div className="column is-4">
+                    <EditPokemonForm
+                      pokemon={pokemon}
+                      key={pokemon.id}
+                      editPokemon={this.editPokemon}
+                    />
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="column is-4">
+                    <Pokemon
+                      pokemon={pokemon}
+                      key={pokemon.id}
+                      onRemovePokemon={this.removePokemon}
+                      editingPokemon={this.editingPokemon}
+                    />
+                  </div>
+                );
+              }
+            })}
+          </div>
+          <NewPokemonForm onNewPokemon={this.addNewPokemon} />
+        </div>
+      </section>
     );
   }
 }

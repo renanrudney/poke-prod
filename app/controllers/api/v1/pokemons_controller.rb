@@ -8,7 +8,7 @@ module Api
 
       # GET /pokemons
       def index
-        @pokemons = Pokemon.all
+        @pokemons = Pokemon.all.with_attached_image
 
         render json: @pokemons
       end
@@ -31,7 +31,8 @@ module Api
 
       # PATCH/PUT /pokemons/1
       def update
-        if @pokemon.update(pokemon_params)
+        # if @pokemon.update(pokemon_params)
+        if UpdatePokemonService.new(@pokemon, pokemon_params).call
           render json: @pokemon
         else
           render json: @pokemon.errors, status: :unprocessable_entity
@@ -57,7 +58,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def pokemon_params
-        params.require(:pokemon).permit(:name, :height, :weight, :specie)
+        params.require(:pokemon).permit(:name, :height, :weight, :specie, :image)
       end
     end
   end
