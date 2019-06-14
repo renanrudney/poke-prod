@@ -35,6 +35,7 @@ rake start
 **To Do**
 
 - Filter by Name
+- Unique Names
 - Filter by Specie
 
 **To Fix**
