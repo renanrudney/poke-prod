@@ -40,7 +40,7 @@ rake start
 
 **To Fix**
 
--- React Dropzone (Image Upload)
+- React Dropzone (Image Upload)
 
 
 
